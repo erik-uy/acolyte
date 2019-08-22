@@ -57,7 +57,7 @@
           <v-list-item
             v-else
             :key="i"
-            @click=""
+            v-on-click=""
           >
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
