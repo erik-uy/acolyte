@@ -6,7 +6,7 @@
       color="amber"
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <span class="title ml-3 mr-5">Google&nbsp;<span class="font-weight-light">Keep</span></span>
+      <span class="title ml-3 mr-5">Acolyte&nbsp;<span class="font-weight-light">Keep</span></span>
       <v-text-field
         solo-inverted
         flat
@@ -23,10 +23,26 @@
       clipped
       color="grey lighten-4"
     >
+        <v-overflow-btn
+          class="my-2"
+          :items="items"
+          label="Start"
+          editable
+          item-value="text"
+        ></v-overflow-btn>
+        <v-overflow-btn
+          class="my-2"
+          :items="items"
+          label="Destination"
+          editable
+          item-value="text"
+        ></v-overflow-btn>
+
       <v-list
         dense
         class="grey lighten-4"
       >
+
         <template v-for="(item, i) in items">
           <v-row
             v-if="item.heading"
@@ -57,7 +73,7 @@
           <v-list-item
             v-else
             :key="i"
-            v-on-click=""
+            v-bind:to="item.to"
           >
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
@@ -73,7 +89,7 @@
     </v-navigation-drawer>
 
     <v-content>
-      <router-view/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
@@ -86,20 +102,13 @@
     data: () => ({
       drawer: null,
       items: [
-        { icon: 'lightbulb_outline', text: 'Notes' },
-        { icon: 'touch_app', text: 'Reminders' },
+        { icon: 'directions_bus', text: 'Bus' , to:'bus'},
+        { icon: 'directions_transit', text: 'Train', to:'train' },
         { divider: true },
-        { heading: 'Labels' },
-        { icon: 'add', text: 'Create new label' },
-        { divider: true },
-        { icon: 'archive', text: 'Archive' },
-        { icon: 'delete', text: 'Trash' },
+        { heading: 'Your Trips' },
+        { icon: 'add', text: 'Create a new route' },
         { divider: true },
         { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Trash' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'phonelink', text: 'App downloads' },
-        { icon: 'keyboard', text: 'Keyboard shortcuts' },
       ],
     }),
   }
