@@ -23,20 +23,21 @@
       clipped
       color="grey lighten-4"
     >
-        <v-overflow-btn
-          class="my-2"
-          :items="items"
-          label="Start"
-          editable
-          item-value="text"
-        ></v-overflow-btn>
-        <v-overflow-btn
-          class="my-2"
-          :items="items"
-          label="Destination"
-          editable
-          item-value="text"
-        ></v-overflow-btn>
+    <v-row align="center">
+      <v-col>
+        <v-btn class="mx-2" fab dark large color="cyan">
+          <v-icon dark>my_location</v-icon>
+        </v-btn>
+      </v-col>
+      <v-col>
+       <v-icon x-large >arrow_right_alt</v-icon>
+      </v-col>
+      <v-col>
+        <v-btn class="mx-2" fab dark large color="indigo">
+          <v-icon dark>pin_drop</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
 
       <v-list
         dense
